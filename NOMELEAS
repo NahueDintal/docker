@@ -1,0 +1,35 @@
+# docker
+sqlserver
+
+#Comandos para levantar servicios
+docker-compose up -d
+
+docker-compose up -d servicio1 servicio2
+
+docker-compose up -d --build
+
+docker-compose up -d --force-recreate
+
+# Verificar el estado de los servicios
+
+docker-compose ps
+
+docker-compose logs
+
+docker-compose logs -f
+
+docker-compose logs -f nombre_servicio
+
+# Detener y eliminar servicios
+
+docker-compose stop
+
+docker-compose down 
+
+# Elinina contenedores y volúmenes ( Cuidado borra datos persistentes )
+docker-compose down -v
+
+# Elinina contenedores, volúmenes e imágenes
+docker-compose down -v --rmi all
+
+
