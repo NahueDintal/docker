@@ -1,20 +1,23 @@
 services:
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: sqlserver-dev
+    user: root
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: ${SA_PASSWORD}
       MSSQL_PID: Developer
+      PATH: /opt/mssql-tools18/bin:${PATH}
     ports:
       - "1433:1433"
     volumes:
-      # Eliminar montaje de ./init temporalmente
       - sqlserver_data:/var/opt/mssql
+      - docker_bashrc:/home/mssql
     healthcheck:
-      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "SELECT 1"]
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "SELECT @@VERSION"]
       interval: 10s
       timeout: 3s
       retries: 10
 volumes:
   sqlserver_data:
+  docker_bashrc:
