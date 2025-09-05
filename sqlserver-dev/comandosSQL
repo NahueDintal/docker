@@ -1,0 +1,110 @@
+1. Crear una base de datos
+
+CREATE DATABASE NombreBaseDeDatos;
+
+2. Usar una base de datos
+
+USE NombreBaseDeDatos;
+
+3. Crear una tabla
+
+CREATE TABLE NombreTabla (
+    Columna1 INT PRIMARY KEY,
+    Columna2 VARCHAR(50) NOT NULL,
+    Columna3 FLOAT,
+    Columna4 DATE
+);
+
+4. Insertar datos en una tabla
+
+INSERT INTO NombreTabla (Columna1, Columna2, Columna3, Columna4)
+VALUES (1, 'Ejemplo', 3.14, '2023-10-25');
+
+5. Consultar datos
+
+SELECT * FROM NombreTabla;
+
+6. Actualizar datos
+
+UPDATE NombreTabla
+SET Columna2 = 'Nuevo Valor'
+WHERE Columna1 = 1;
+
+7. Eliminar datos
+
+DELETE FROM NombreTabla
+WHERE Columna1 = 1;
+
+8. Agregar una columna a una tabla existente
+
+ALTER TABLE NombreTabla
+ADD Columna5 INT;
+
+9. Modificar una columna existente
+
+ALTER TABLE NombreTabla
+ALTER COLUMN Columna5 VARCHAR(100);
+
+10. Eliminar una columna
+
+ALTER TABLE NombreTabla
+DROP COLUMN Columna5;
+
+11. Crear un índice
+
+CREATE INDEX IX_NombreTabla_Columna2
+ON NombreTabla (Columna2);
+
+12. Eliminar una tabla
+
+DROP TABLE NombreTabla;
+
+13. Eliminar una base de datos
+
+DROP DATABASE NombreBaseDeDatos;
+
+14. Unir tablas (JOIN)
+
+SELECT a.*, b.*
+FROM TablaA a
+INNER JOIN TablaB b ON a.ID = b.ID;
+
+15. Agrupar y agregar datos
+
+SELECT Columna2, COUNT(*)
+FROM NombreTabla
+GROUP BY Columna2;
+
+16. Filtrar con HAVING
+
+SELECT Columna2, COUNT(*)
+FROM NombreTabla
+GROUP BY Columna2
+HAVING COUNT(*) > 1;
+
+17. Transacciones
+
+BEGIN TRANSACTION;
+-- Tus comandos aquí
+COMMIT TRANSACTION;
+-- o ROLLBACK TRANSACTION; para deshacer
+
+18. Crear una vista
+
+CREATE VIEW VistaEjemplo AS
+SELECT Columna1, Columna2
+FROM NombreTabla
+WHERE Columna3 > 10;
+
+19. Procedimientos almacenados
+
+CREATE PROCEDURE NombreProcedimiento
+AS
+BEGIN
+    -- Código aquí
+    SELECT * FROM NombreTabla;
+END;
+
+20. Ejecutar un procedimiento almacenado
+
+EXEC NombreProcedimiento;
