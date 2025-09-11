@@ -108,3 +108,8 @@ END;
 20. Ejecutar un procedimiento almacenado
 
 EXEC NombreProcedimiento;
+
+21. Para ver las tablas 
+
+SELECT name FROM sys.tables;
+
