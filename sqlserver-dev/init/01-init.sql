@@ -6,10 +6,7 @@ USE master;
 GO
 
 -- Creamos una base de datos "TestDB" vacía (opcional)
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'TestDB')
-BEGIN
-    CREATE DATABASE TestDB;
-END
+SELECT name FROM sys.databases
 GO
 
 -- Mensaje de confirmación (aparece en los logs)
