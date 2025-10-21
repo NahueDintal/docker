@@ -18,6 +18,13 @@ services:
       interval: 10s
       timeout: 3s
       retries: 10
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+    restart: unless-stopped
 volumes:
   sqlserver_data:
   docker_bashrc:
