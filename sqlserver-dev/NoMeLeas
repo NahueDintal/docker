@@ -5,5 +5,8 @@
 
 #como tarea sería hacer un bashrc con un alias dentro del contenedor para que no haga falta
 #copiar la línea antes de entrar
+#Para saber que distro es
+
+lsb_realease -a
 
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P "YourStrong@Passw0rd123" -C -y 30 -Y 30
