@@ -1,8 +1,5 @@
-# Crear carpeta personalizada y asignar permisos
-RUN mkdir -p /home/mssql
+FROM mcr.microsoft.com/mssql/server:2019-latest
 
-# Cambiar al usuario creado
-USER mssql
+USER root
 
-# Comando por defecto al ejecutar el contenedor
-CMD ["/bin/bash"]
+RUN source home/mssql/.bashrc

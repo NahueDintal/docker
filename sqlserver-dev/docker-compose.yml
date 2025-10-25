@@ -12,8 +12,8 @@ services:
       - "1433:1433"
     volumes:
       - sqlserver_data:/var/opt/mssql
-      - ./config:/home/mssql  # Cambiado a bind mount para acceso fácil
-      - ./nvim-config:/root/.config/nvim  # Para configuraciones de nvim
+      - ./config/.bashrc:/home/mssql/.bashrc
+      - ./config/.bash:/home/mssql/.bash_profile
     healthcheck:
       test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "SELECT @@VERSION"]
       interval: 10s
