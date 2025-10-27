@@ -1,8 +1,3 @@
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
-echo "✅ Bashrc cargado automáticamente"
-
 alias ll='ls -la'
 
 server() {
